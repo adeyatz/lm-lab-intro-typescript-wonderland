@@ -1,5 +1,6 @@
 import { endAdventure, haveAdventures } from "../..";
 import { askQuestion, clear, print } from "../ui/console";
+import { visitPigs } from "../chapter_7/chaper_7_pigs";
 
 // ⚠️ This is a very unusual type setup. It's not a great idea in the real world
 // to nest so many properties with the exact same name.
@@ -32,11 +33,11 @@ export function wakeUp(): void {
     print("Although...❓❓❓");
     print("What are these tarts doing here?! 🥧🥧🥧🥧🥧🥧 🤔");
 
-    print(
-      "✅ CONGRATULATIONS! You successfully made it through Wonderland! 🥳"
+    return askQuestion(
+      "Press ENTER to continue to visit the 3 little pigs! oink oink 🐷 ",
+      visitPigs
     );
-
-    return askQuestion("Press ENTER to re-enter Wonderland! ", haveAdventures);
+    //    return askQuestion("Press ENTER to re-enter Wonderland! ", haveAdventures);
   } else {
     print("You are unable to wake up! 😱");
     return endAdventure();
